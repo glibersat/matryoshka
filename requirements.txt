@@ -1,0 +1,6 @@
+Cython==0.17.3
+PyYAML==3.10
+pykka==1.0.1
+metamodel==0.1.2
+rfoo==1.3.0
+zope.component==4.0.1

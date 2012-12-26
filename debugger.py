@@ -1,5 +1,4 @@
-from matryoshka import Debugger
-from test import CharacterComponent
+from matryoshka.debugger import GtkDebugger
 from gi.repository import Gtk
 import gc
 
@@ -14,8 +13,7 @@ def start():
         except:
             pass
             
-    print "yeah", comps
-    win = Debugger(comps)
+    win = GtkDebugger(comps)
     win.show_all()    
     Gtk.main()
 

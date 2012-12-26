@@ -6,10 +6,9 @@ from rfoo.utils import rconsole
 rconsole.spawn_server()
 
 import matryoshka
-from matryoshka import Component, Model, Controller, Property
-from matryoshka import Debugger
+from matryoshka.component import Component, Model, Controller, Property, IComponent
 
-class ICharacter(matryoshka.IComponent):
+class ICharacter(IComponent):
     def set_pos(x, y):
         pass
 
@@ -44,16 +43,12 @@ class CharacterController(Controller):
         self.y = y
     
 class CharacterComponent(Component):
-    matryoshka.interface.implements(ICharacter)
+    matryoshka.component.interface.implements(ICharacter)
     
     model = CharacterModel
     controller = CharacterController
 
 
-    
-
-from gi.repository import Gtk
-        
 if __name__ == '__main__':
     # actor.tell({'coin': 2})
     # print actor.ask({'command': 'coin'})
@@ -68,7 +63,8 @@ if __name__ == '__main__':
         print "alive"
         import time
         time.sleep(2)
-    # matryoshka.Registry.stop_all()
+
+    matryoshka.Registry.stop_all()
     
 
 class UI(pykka.ThreadingActor):
