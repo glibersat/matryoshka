@@ -36,7 +36,7 @@ class Component(pykka.proxy.ActorProxy):
     interface.implements(IComponent)
     
     def __init__(self, *args, **kwargs):
-        self._model = self.model()
+        self._model = self.model(*args, **kwargs)
         self._controller = self.controller.start(self._model, *args, **kwargs)
         
         super(Component, self).__init__(self._controller)
