@@ -8,7 +8,7 @@ def start():
     comps = []
     for obj in gc.get_objects():
         try:
-            if 'CharacterComponent' in obj.__class__.__name__:
+            if 'Component' in obj.__class__.__name__:
                 comps.append(obj)
         except:
             pass
